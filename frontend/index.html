@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>welcome to the book store <h4><a href="/log.html">see all our books</a></h4> </h1>
+
+    <label>which book do you want</label><br><br>
+    <input id="findBook"/><br><br>
+    <button id="findBookbuton">submit</button>
+
+    <p>
+        <div style="visibility: hidden;" id="bookFound">
+            <div id="findbookname">bookname : aa</div><br>
+            <div id="findbookprice">bookprice : 1234</div>
+            <h3 style="visibility: hidden;" id ="bookNotFound">book not found</h3>
+        </div>
+       
+    </p>
+
+   <h3>add book to bookstore</h3>
+   <label>book name</label>
+   <input id="addBookName"><br>
+   <label for="addBookName">book price</label>
+   <input id="addBookPrice"><br>
+   <button id="addBookbuton">submit</button><br>
+   <div id ="isBookAdded"></div>
+
+
+   <h3>delete book from bookstore</h3>
+   <label for="addBook">book name</label>
+   <input id="deleteBookName">
+   <button id="deleteBookbuton">submit</button><br>
+   <div style="visibility: hidden;" id ="isBookdeleted"></div>
+
+
+   
+
+
+   
+    
+    
+<script src="index.js"></script>
+</body>
+</html>

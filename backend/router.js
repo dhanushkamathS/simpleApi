@@ -29,11 +29,11 @@ exports.specificBook = (req,res)=>{
         var books = JSON.parse(data);
 
         for (let i = 0; i < books.length; i++) {
-            if (books[i].book.bookname == req.params.name){
+            if (books[i].book.bookname.toString() == req.params.name.toString()){
                 return res.status(200).send(books[i].book);
             }
         }
-        return res.status(200).send("book not found");
+        return res.status(200).json({"bookname":""});
     });
    
 }
@@ -54,13 +54,17 @@ exports.addbook = (req , res)=>{
             for (var i = 0; i < books.length; i++) {
                 
                 if(books[i].book.bookname.toString() === inputBook.book.bookname.toString()){
-                    return res.send("already exists");
+                    console.log("exists")
+                    return res.send({"book":"already exists"});
                 }
             }
             
             //will be executed if the file does not already exist
             books.push(inputBook)
-            fs.writeFile(fileName,JSON.stringify(books),(err)=>{if (err) throw err; res.send("book added to DB")});
+            fs.writeFile(fileName,JSON.stringify(books),(err)=>{if (err) throw err;});
+            console.log("added");
+            return res.send({"book":"book added to DB"});
+           
             
         });
     }
@@ -87,10 +91,10 @@ exports.deletebook = (req , res)=>{
                     book1.push(books[j]);
                 }
                 fs.writeFile(fileName,JSON.stringify(book1),(err)=>{if (err) throw err;});
-                return res.send("book deleted");
+                return res.send({"book":"book deleted"});
             }
         }
-        return res.send("book not found");
+        return res.send({"book":"book not found"});
     });
 
 
